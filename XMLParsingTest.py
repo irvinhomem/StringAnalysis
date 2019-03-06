@@ -13,5 +13,13 @@ parser = etree.XMLParser(remove_comments=True, recover=True )
 tree = objectify.parse(xml_file_path, parser=parser)
 print('Type: %s ' % type(tree) )
 
-print(tree.getroot().)
+#print(tree.getroot().)
+
+my_tree = etree.ElementTree(tree)
+
+soup = BeautifulSoup(tree, 'lxml')
+
+#lxml
+for node in tree.iter('*'):
+    print(node.tag)
 
