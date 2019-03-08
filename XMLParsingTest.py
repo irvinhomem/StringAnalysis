@@ -13,13 +13,41 @@ parser = etree.XMLParser(remove_comments=True, recover=True )
 tree = objectify.parse(xml_file_path, parser=parser)
 print('Type: %s ' % type(tree) )
 
-#print(tree.getroot().)
+root = tree.getroot()
+print('Root: %s' % tree.getroot())
 
-my_tree = etree.ElementTree(tree)
+my_rules = root.findall('rule')
+print('Type expected for Child Element Rules -->List: %s' % type(my_rules))
+print('Child Element Rules --> List Length: %i' % len(my_rules))
 
-soup = BeautifulSoup(tree, 'lxml')
+rules_children = root.getchildren()
+print('Type expected for Rules Children -->List: %s' % type(rules_children))
+print('Rules Children --> List Length: %i' % len(rules_children))
+print('RULES: %s' % rules_children  )
+
+# Elements carrt attributes as a dict
+print(rules_children[0].tag)
+print(rules_children[0].keys())
+print(rules_children[0].get('name'))
+print(rules_children[0].get(rules_children[0].keys()[0]))
+
+
+rules = tree.findall('rule')
+rules_all = tree.iterfind('rule')
+
+print('Type expected for Rules -->List: %s' % type(rules))
+print('Type expected for Rules -->List: %s' % type(rules_all))
+print('Rules --> List Length: %i' % len(rules))
+#print('Rules --> List Length: %i' % len(rules_all))
+print('Rules list: %s' % rules)
+print('Rules list: %s' % rules_all)
+
+
+#my_tree = etree.ElementTree(tree)
+
+#soup = BeautifulSoup(tree, 'lxml')
 
 #lxml
-for node in tree.iter('*'):
-    print(node.tag)
+# for node in tree.iter('*'):
+#     print(node.tag)
 
