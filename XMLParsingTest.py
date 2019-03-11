@@ -39,6 +39,10 @@ print(rules_children[0].keys())
 print(rules_children[0].get('name'))
 print(rules_children[0].get(rules_children[0].keys()[0]))
 
+# Create a set of node-attribute tuples
+# https://networkx.github.io/documentation/stable/reference/classes/generated/networkx.Graph.add_nodes_from.html#networkx.Graph.add_nodes_from
+
+
 
 rules = tree.findall('rule')
 rules_all = tree.iterfind('rule')
