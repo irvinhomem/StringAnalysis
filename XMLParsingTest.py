@@ -26,7 +26,7 @@ print('Type expected for Child Element Rules -->List: %s' % type(my_rules))
 print('Child Element Rules --> List Length: %i' % len(my_rules))
 
 rules_children = root.getchildren()
-print('Type expected for Rules Children -->List: %s' % type(rules_children))
+print('TYPE expected for Rules Children -->List: %s' % type(rules_children))
 print('Rules Children --> List Length: %i' % len(rules_children))
 print('Rules Children ELEMENT exprected type: %s' % type(rules_children[0]))
 
@@ -41,7 +41,12 @@ print(rules_children[0].get(rules_children[0].keys()[0]))
 
 # Create a set of node-attribute tuples
 # https://networkx.github.io/documentation/stable/reference/classes/generated/networkx.Graph.add_nodes_from.html#networkx.Graph.add_nodes_from
-
+all_rule_groups = root.findall('group')
+print('All GROUPS length: --> %i' % len(all_rule_groups))
+for idx, single_group in enumerate(all_rule_groups):
+    #print(idx, single_group)
+    print('ELEMENT NAME: %s :: ATRR[%s] :: VALUE[%s]' % (all_rule_groups[idx].tag,all_rule_groups[idx].keys(), all_rule_groups[idx].get('name')))     # or alternatively single_group.tag
+    #print(single_group.tag)     # or alternatively single_group.tag
 
 
 rules = tree.findall('rule')
